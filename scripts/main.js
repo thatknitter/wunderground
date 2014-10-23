@@ -1,4 +1,3 @@
-var url = 'http://api.wunderground.com/api/b87f952cedc29268/forecast10day/q/37217.json';
 
 function getJSONP(url, cbName) {
    var $script = document.createElement('script');
@@ -10,6 +9,7 @@ function arrayGrab(data){
         console.log(data);
         var data = data.forecast.simpleforecast.forecastday;
         var $target = document.querySelector('ul');
+        $target.innerHTML = "";
         for (var i = 0; i < 6; i++){
             addItemToList($target, data[i]);
 
@@ -39,7 +39,11 @@ function addItemToList($list, items){
 }
 
 document.addEventListener("DOMContentLoaded", function(){
-  
-  getJSONP(url, 'arrayGrab');
-  
+  var $form = document.querySelector('form');
+  var $zipBox = $form.querySelector("input[type='text']"); 
+  $form.addEventListener("submit", function(event){
+    event.preventDefault();
+    var url = 'http://api.wunderground.com/api/b87f952cedc29268/forecast10day/q/' + $zipBox.value + '.json';
+    getJSONP(url, 'arrayGrab');
+  }); 
 });

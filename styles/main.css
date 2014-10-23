@@ -13,3 +13,7 @@ h1 {
   font-family: Impact, helvetica, arial, sans-serif;
   text-align: center;
 }
+
+form {
+  text-align: center;
+}
