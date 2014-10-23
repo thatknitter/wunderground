@@ -1,4 +1,4 @@
-var url = 'http://api.wunderground.com/api/b87f952cedc29268/forecast10day/q/CA/San_Francisco.json';
+var url = 'http://api.wunderground.com/api/b87f952cedc29268/forecast10day/q/37217.json';
 
 function getJSONP(url, cbName) {
    var $script = document.createElement('script');
