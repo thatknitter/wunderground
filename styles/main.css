@@ -1,0 +1,7 @@
+ul.week li {
+  display: inline-block;
+  border-style: solid;
+  border-width: 1pt;
+  border-color: #000000;
+  width: 10%;
+}
