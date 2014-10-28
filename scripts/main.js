@@ -16,7 +16,6 @@ function arrayGrab(data){
          }
 }
 
-
 function addItemToList($list, items){
   // var $list = arguments[0]
   // var items = arguments[1]
@@ -39,11 +38,15 @@ function addItemToList($list, items){
 }
 
 document.addEventListener("DOMContentLoaded", function(){
+  navigator.geolocation.getCurrentPosition(function (position){
+  	getCoords(position.coords.latitude, position.coords.longitude);
+  });
   var $form = document.querySelector('form');
   var $zipBox = $form.querySelector("input[type='text']"); 
   $form.addEventListener("submit", function(event){
     event.preventDefault();
     var url = 'http://api.wunderground.com/api/b87f952cedc29268/forecast10day/q/' + $zipBox.value + '.json';
     getJSONP(url, 'arrayGrab');
-  }); 
+  });
+    
 });
